@@ -1,0 +1,103 @@
+% LaTeX parameters
+%\allowdisplaybreaks
+
+% Packages
+\usepackage[T1]{fontenc}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{array}
+\usepackage{colortbl}
+\usepackage{enumerate}[shortlabels]
+\usepackage{esint}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{geometry}
+\usepackage{listings}
+\usepackage{lmodern}
+\usepackage{mathrsfs}
+\usepackage{mdframed}
+\usepackage{multicol}
+\usepackage{pgfplots}
+\usepackage{pgf}
+\usepackage{thmtools}
+\usepackage{tikz}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+
+\geometry{a4paper,left=15mm,top=15mm,right=15mm,bottom=15mm}
+
+%\setlength{\parskip}{0.5cm}
+\setlength{\parindent}{0cm}
+
+% Package parameters
+\pgfplotsset{compat=1.15}
+\usetikzlibrary{arrows}
+
+%-THEOREMS-----------------------------------
+
+\theoremstyle{plain}% default
+\newtheorem{thm}{Theorem}
+\newtheorem{claim}[thm]{Claim}
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem*{cor}{Corollary}
+
+\theoremstyle{definition}
+\newtheorem{defn}{Definition}[section]
+\newtheorem{exmp}{Example}[section]
+\newtheorem{xca}[exmp]{Exercise}
+
+\theoremstyle{remark}
+\newtheorem*{rem}{Remark}
+\newtheorem*{note}{Note}
+\newtheorem{case}{Case}
+
+%-OPERATORS----------------------------------
+
+% Linear algebra
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator{\spann}{span}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\nullity}{nullity}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\proj}{proj}
+
+% Vector calculus
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\dive}{div}
+
+% Advanced trigonometry
+\DeclareMathOperator{\sech}{sech}
+\DeclareMathOperator{\csch}{csch}
+\DeclareMathOperator{\arcsinh}{arcsinh}
+\DeclareMathOperator{\arccosh}{arccosh}
+\DeclareMathOperator{\arctanh}{arctanh}
+\DeclareMathOperator{\arcsech}{arcsech}
+\DeclareMathOperator{\arccsch}{arccsch}
+\DeclareMathOperator{\arccoth}{arccoth}
+
+% Algebra
+\DeclareMathOperator{\image}{im}
+
+% Blackboard bold
+\DeclareMathOperator{\NN}{\mathbb{N}}	% natural numbers
+\DeclareMathOperator{\ZZ}{\mathbb{Z}}	% integers
+\DeclareMathOperator{\QQ}{\mathbb{Q}}	% rationals
+\DeclareMathOperator{\RR}{\mathbb{R}}	% reals
+\DeclareMathOperator{\CC}{\mathbb{C}}	% complex
+\DeclareMathOperator{\II}{\mathbb{I}}	% irrationals
+\DeclareMathOperator{\FF}{\mathbb{F}}	% field
+\DeclareMathOperator{\EE}{\mathbb{E}}	% expectation
+\DeclareMathOperator{\PP}{\mathbb{P}}	% probability
+
+% Statistics
+\DeclareMathOperator{\Var}{Var}
+
+\newcommand\SLASH{\char`\\}
+
+% Defining array lengths
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}

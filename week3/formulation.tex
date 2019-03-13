@@ -1,0 +1,73 @@
+\documentclass[12pt, a4paper]{amsart}
+\input{../header.tex}
+
+\title{
+	MATH3202\\Operations Research\\Tutorial 3
+}
+\author{Matthew Low}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+
+	\subsection*{Sets}
+
+	\[
+	\begin{array}{R{5 cm} L{12 cm}}
+		$I$ & oils \\
+		$T$ & months \{0,1,2,3,4,5\}
+	\end{array}
+	\]
+
+	\subsection*{Data}
+
+	\[
+	\begin{array}{R{5 cm} L{12 cm}}
+		$H_i$ & hardness of oil $i \in I$ \\
+		$\text{Cost}_{it}$ & cost (\$/tonne) of oil $ i \in I$ in month $t \in T$\\
+		$\text{IsVeg}_i$ & is oil $i \in I$ vegetable? \\
+		MaxH & max hardness of blend \\
+		MinH & min hardness of blend \\
+		MaxVeg & max processing of vegetable oils (tonnes) \\
+		MaxNonVeg & max processing of non-veg oils (tonnes) \\
+		StoreCost & cost of storage (\$/tonne/month) \\
+		StoreMax & max storage (tonnes) for each oil \\
+		Initial & initial amount in storage of each oil \\
+		Sell & sell price (\$/tonne) of blend
+	\end{array}
+	\]
+
+	\subsection*{Variables}
+
+	\[
+	\begin{array}{R{5 cm} L{12 cm}}
+		$x_{it}$ & amount of oil $i \in I$ to process (tonnes) in month $t \in T$ \\
+		$y_{it}$ & amount of oil $i \in I$ to purchase (tonnes) in month $t \in T$ \\
+		$s_{it}$ & amount in storage of $i \in I$ (tonnes) at end of month $t \in T$
+	\end{array}
+	\]
+
+	\subsection*{Objective}
+	\[
+		\max \left( \text{profit}=\sum_{i\in I} \sum_{t \in T} \text{Sell}x_{it} - \sum_{i\in I} \sum_{t \in T}\text{Cost}_{it} y_{it} - \sum_{i \in I} \sum_{t \in T} \text{StoreCost} s_{it} \right)
+	\]
+
+	\subsection*{Constraints}
+
+	\begin{align}
+		\sum_{\substack{i \in I \\ \text{IsVeg}_i}} x_{it} &\leq \text{MaxVeg} & \forall t \in T \\
+		\sum_{\substack{i \in I \\ \text{NotIsVeg}_i}} x_{it} &\leq \text{MaxNonVeg} & \forall t \in T \\
+		\sum_{i \in I} (H_i - \text{MinH})x_{it} &\geq 0 &\forall t \in T \\
+		\sum_{i \in I} (H_i - \text{MaxH})x_{it} &\leq 0 &\forall t \in T \\
+		s_{it} &\leq \text{StoreMax} &\forall t \in T \\
+		s_{i0} &= \text{Initial} - x_{i0} + y_{i0} &\forall i \in I \\
+		s_{it} &= s_{i(t-1)} - x_{it} + y_{it} &\forall i \in I, t \in T, t \neq 0 \\
+		x_{it}, y_{it}, s_{it} &\geq 0  &\forall i \in I, t \in T
+	\end{align}
+
+\begin{note}
+Constraints number (6) and (7) are called \textbf{inventory constraints}.
+\end{note}
+
+\end{document}
